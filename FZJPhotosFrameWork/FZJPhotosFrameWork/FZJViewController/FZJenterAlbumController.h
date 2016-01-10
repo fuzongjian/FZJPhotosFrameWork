@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  FZJenterAlbumController.h
 //  FZJPhotosFrameWork
 //
 //  Created by fdkj0002 on 16/1/10.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface FZJenterAlbumController : UITableViewController
 
+@property(nonatomic,strong)NSArray<FZJPhotoList *> * photoList;
 
 @end
-

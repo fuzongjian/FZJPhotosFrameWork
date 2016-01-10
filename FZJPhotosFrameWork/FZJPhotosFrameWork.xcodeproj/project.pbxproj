@@ -9,12 +9,20 @@
 /* Begin PBXBuildFile section */
 		3A56FE2F1C4221AB00970663 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE2E1C4221AB00970663 /* main.m */; };
 		3A56FE321C4221AB00970663 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE311C4221AB00970663 /* AppDelegate.m */; };
-		3A56FE351C4221AB00970663 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE341C4221AB00970663 /* ViewController.m */; };
 		3A56FE381C4221AB00970663 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A56FE361C4221AB00970663 /* Main.storyboard */; };
 		3A56FE3A1C4221AB00970663 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A56FE391C4221AB00970663 /* Assets.xcassets */; };
 		3A56FE3D1C4221AB00970663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A56FE3B1C4221AB00970663 /* LaunchScreen.storyboard */; };
 		3A56FE481C4221AB00970663 /* FZJPhotosFrameWorkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE471C4221AB00970663 /* FZJPhotosFrameWorkTests.m */; };
 		3A56FE531C4221AB00970663 /* FZJPhotosFrameWorkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE521C4221AB00970663 /* FZJPhotosFrameWorkUITests.m */; };
+		3A56FE6C1C422D6500970663 /* FZJPhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE6B1C422D6500970663 /* FZJPhotoTool.m */; };
+		3A56FE701C423C8500970663 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE6F1C423C8500970663 /* UIViewExt.m */; };
+		3A56FE741C423CAE00970663 /* FZJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE731C423CAE00970663 /* FZJViewController.m */; };
+		3A56FE7B1C4242BD00970663 /* FZJSmallPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE791C4242BD00970663 /* FZJSmallPhotoCell.m */; };
+		3A56FE7C1C4242BD00970663 /* FZJSmallPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A56FE7A1C4242BD00970663 /* FZJSmallPhotoCell.xib */; };
+		3A56FE871C4250B700970663 /* FZJenterAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE861C4250B700970663 /* FZJenterAlbumController.m */; };
+		3A56FE8B1C42515500970663 /* FZJenterAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE891C42515500970663 /* FZJenterAlbumCell.m */; };
+		3A56FE8C1C42515500970663 /* FZJenterAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A56FE8A1C42515500970663 /* FZJenterAlbumCell.xib */; };
+		3A56FE8E1C425FAE00970663 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A56FE8D1C425FAE00970663 /* Photos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +47,6 @@
 		3A56FE2E1C4221AB00970663 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A56FE301C4221AB00970663 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A56FE311C4221AB00970663 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3A56FE331C4221AB00970663 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3A56FE341C4221AB00970663 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3A56FE371C4221AB00970663 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A56FE391C4221AB00970663 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A56FE3C1C4221AB00970663 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +57,23 @@
 		3A56FE4E1C4221AB00970663 /* FZJPhotosFrameWorkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FZJPhotosFrameWorkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A56FE521C4221AB00970663 /* FZJPhotosFrameWorkUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FZJPhotosFrameWorkUITests.m; sourceTree = "<group>"; };
 		3A56FE541C4221AB00970663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A56FE6A1C422D6500970663 /* FZJPhotoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJPhotoTool.h; sourceTree = "<group>"; };
+		3A56FE6B1C422D6500970663 /* FZJPhotoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJPhotoTool.m; sourceTree = "<group>"; };
+		3A56FE6E1C423C8500970663 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		3A56FE6F1C423C8500970663 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		3A56FE721C423CAE00970663 /* FZJViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJViewController.h; sourceTree = "<group>"; };
+		3A56FE731C423CAE00970663 /* FZJViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJViewController.m; sourceTree = "<group>"; };
+		3A56FE761C423CDF00970663 /* FZJHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJHeader.h; sourceTree = "<group>"; };
+		3A56FE771C423CDF00970663 /* FZJPCH.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJPCH.pch; sourceTree = "<group>"; };
+		3A56FE781C4242BD00970663 /* FZJSmallPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJSmallPhotoCell.h; sourceTree = "<group>"; };
+		3A56FE791C4242BD00970663 /* FZJSmallPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJSmallPhotoCell.m; sourceTree = "<group>"; };
+		3A56FE7A1C4242BD00970663 /* FZJSmallPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FZJSmallPhotoCell.xib; sourceTree = "<group>"; };
+		3A56FE851C4250B700970663 /* FZJenterAlbumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJenterAlbumController.h; sourceTree = "<group>"; };
+		3A56FE861C4250B700970663 /* FZJenterAlbumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJenterAlbumController.m; sourceTree = "<group>"; };
+		3A56FE881C42515500970663 /* FZJenterAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJenterAlbumCell.h; sourceTree = "<group>"; };
+		3A56FE891C42515500970663 /* FZJenterAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJenterAlbumCell.m; sourceTree = "<group>"; };
+		3A56FE8A1C42515500970663 /* FZJenterAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FZJenterAlbumCell.xib; sourceTree = "<group>"; };
+		3A56FE8D1C425FAE00970663 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A56FE8E1C425FAE00970663 /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +105,7 @@
 		3A56FE211C4221AB00970663 = {
 			isa = PBXGroup;
 			children = (
+				3A56FE8D1C425FAE00970663 /* Photos.framework */,
 				3A56FE2C1C4221AB00970663 /* FZJPhotosFrameWork */,
 				3A56FE461C4221AB00970663 /* FZJPhotosFrameWorkTests */,
 				3A56FE511C4221AB00970663 /* FZJPhotosFrameWorkUITests */,
@@ -103,8 +128,12 @@
 			children = (
 				3A56FE301C4221AB00970663 /* AppDelegate.h */,
 				3A56FE311C4221AB00970663 /* AppDelegate.m */,
-				3A56FE331C4221AB00970663 /* ViewController.h */,
-				3A56FE341C4221AB00970663 /* ViewController.m */,
+				3A56FE711C423CAE00970663 /* FZJViewController */,
+				3A56FE661C422D0200970663 /* FZJModel */,
+				3A56FE671C422D0200970663 /* FZJTool */,
+				3A56FE6D1C423C8500970663 /* FZJCategory */,
+				3A56FE751C423CDF00970663 /* FZJCommon */,
+				3A56FE681C422D0200970663 /* FZJView */,
 				3A56FE361C4221AB00970663 /* Main.storyboard */,
 				3A56FE391C4221AB00970663 /* Assets.xcassets */,
 				3A56FE3B1C4221AB00970663 /* LaunchScreen.storyboard */,
@@ -138,6 +167,64 @@
 				3A56FE541C4221AB00970663 /* Info.plist */,
 			);
 			path = FZJPhotosFrameWorkUITests;
+			sourceTree = "<group>";
+		};
+		3A56FE661C422D0200970663 /* FZJModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FZJModel;
+			sourceTree = "<group>";
+		};
+		3A56FE671C422D0200970663 /* FZJTool */ = {
+			isa = PBXGroup;
+			children = (
+				3A56FE6A1C422D6500970663 /* FZJPhotoTool.h */,
+				3A56FE6B1C422D6500970663 /* FZJPhotoTool.m */,
+			);
+			path = FZJTool;
+			sourceTree = "<group>";
+		};
+		3A56FE681C422D0200970663 /* FZJView */ = {
+			isa = PBXGroup;
+			children = (
+				3A56FE781C4242BD00970663 /* FZJSmallPhotoCell.h */,
+				3A56FE791C4242BD00970663 /* FZJSmallPhotoCell.m */,
+				3A56FE7A1C4242BD00970663 /* FZJSmallPhotoCell.xib */,
+				3A56FE881C42515500970663 /* FZJenterAlbumCell.h */,
+				3A56FE891C42515500970663 /* FZJenterAlbumCell.m */,
+				3A56FE8A1C42515500970663 /* FZJenterAlbumCell.xib */,
+			);
+			path = FZJView;
+			sourceTree = "<group>";
+		};
+		3A56FE6D1C423C8500970663 /* FZJCategory */ = {
+			isa = PBXGroup;
+			children = (
+				3A56FE6E1C423C8500970663 /* UIViewExt.h */,
+				3A56FE6F1C423C8500970663 /* UIViewExt.m */,
+			);
+			path = FZJCategory;
+			sourceTree = "<group>";
+		};
+		3A56FE711C423CAE00970663 /* FZJViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3A56FE721C423CAE00970663 /* FZJViewController.h */,
+				3A56FE731C423CAE00970663 /* FZJViewController.m */,
+				3A56FE851C4250B700970663 /* FZJenterAlbumController.h */,
+				3A56FE861C4250B700970663 /* FZJenterAlbumController.m */,
+			);
+			path = FZJViewController;
+			sourceTree = "<group>";
+		};
+		3A56FE751C423CDF00970663 /* FZJCommon */ = {
+			isa = PBXGroup;
+			children = (
+				3A56FE761C423CDF00970663 /* FZJHeader.h */,
+				3A56FE771C423CDF00970663 /* FZJPCH.pch */,
+			);
+			path = FZJCommon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +331,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A56FE3D1C4221AB00970663 /* LaunchScreen.storyboard in Resources */,
+				3A56FE8C1C42515500970663 /* FZJenterAlbumCell.xib in Resources */,
 				3A56FE3A1C4221AB00970663 /* Assets.xcassets in Resources */,
 				3A56FE381C4221AB00970663 /* Main.storyboard in Resources */,
+				3A56FE7C1C4242BD00970663 /* FZJSmallPhotoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +359,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A56FE351C4221AB00970663 /* ViewController.m in Sources */,
 				3A56FE321C4221AB00970663 /* AppDelegate.m in Sources */,
+				3A56FE741C423CAE00970663 /* FZJViewController.m in Sources */,
 				3A56FE2F1C4221AB00970663 /* main.m in Sources */,
+				3A56FE7B1C4242BD00970663 /* FZJSmallPhotoCell.m in Sources */,
+				3A56FE701C423C8500970663 /* UIViewExt.m in Sources */,
+				3A56FE6C1C422D6500970663 /* FZJPhotoTool.m in Sources */,
+				3A56FE871C4250B700970663 /* FZJenterAlbumController.m in Sources */,
+				3A56FE8B1C42515500970663 /* FZJenterAlbumCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FZJPhotosFrameWork/FZJCommon/FZJPCH.pch";
 				INFOPLIST_FILE = FZJPhotosFrameWork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FZJ.FZJPhotosFrameWork;
@@ -424,6 +519,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FZJPhotosFrameWork/FZJCommon/FZJPCH.pch";
 				INFOPLIST_FILE = FZJPhotosFrameWork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FZJ.FZJPhotosFrameWork;

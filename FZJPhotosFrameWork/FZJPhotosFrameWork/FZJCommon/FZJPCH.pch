@@ -1,0 +1,24 @@
+//
+//  FZJPCH.pch
+//  FZJPhotosFrameWork
+//
+//  Created by fdkj0002 on 16/1/10.
+//  Copyright © 2016年 fdkj0002. All rights reserved.
+//
+
+#ifndef FZJPCH_pch
+#define FZJPCH_pch
+
+#import "FZJHeader.h"
+
+#import "UIViewExt.h"
+
+#import "FZJPhotoTool.h"
+
+#import <Photos/Photos.h>
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* FZJPCH_pch */

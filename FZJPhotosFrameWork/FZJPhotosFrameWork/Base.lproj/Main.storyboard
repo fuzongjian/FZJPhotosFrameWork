@@ -1,25 +1,124 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9058" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lKr-Df-zfc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="8PZ-cp-C8P">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <navigationController storyboardIdentifier="main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lKr-Df-zfc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T9u-tN-SYB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="M6H-EN-VbA" kind="relationship" relationship="rootViewController" id="i5P-Mv-j1k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nxi-83-pUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-978" y="64"/>
+        </scene>
+        <!--Jenter Album Controller-->
+        <scene sceneID="Hxk-8Y-NdG">
+            <objects>
+                <tableViewController storyboardIdentifier="enterAlbum" id="i1a-Le-uMa" customClass="FZJenterAlbumController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PRM-Bo-GIP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="apT-pC-NwA">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="apT-pC-NwA" id="qTM-t0-DcM">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="i1a-Le-uMa" id="IrT-OP-eye"/>
+                            <outlet property="delegate" destination="i1a-Le-uMa" id="xdU-1X-S3I"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ImP-kc-sVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-820" y="803"/>
+        </scene>
+        <!--照片选择-->
+        <scene sceneID="pEb-TF-Cqu">
+            <objects>
+                <viewController storyboardIdentifier="FZJViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="M6H-EN-VbA" customClass="FZJViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h4B-kL-YdG"/>
+                        <viewControllerLayoutGuide type="bottom" id="eda-lM-zqH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="FZJViewController" id="e9M-JM-Gda">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4M-He-aE1">
+                                <rect key="frame" x="260" y="104" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="H2H-ht-Twt"/>
+                                    <constraint firstAttribute="width" constant="80" id="pH1-v1-iH3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" backgroundImage="add-photo">
+                                    <color key="titleColor" red="0.089025860637954368" green="0.11652411353192471" blue="0.67534722222222221" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPhoto:" destination="M6H-EN-VbA" eventType="touchUpInside" id="yhs-gc-E7c"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入选择照片的数量:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfo-Rz-36X">
+                                <rect key="frame" x="10" y="74" width="160" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="6LK-QU-cSL"/>
+                                    <constraint firstAttribute="height" constant="20" id="feQ-D3-US1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="默认10张" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Bv-Hn-CkE">
+                                <rect key="frame" x="170" y="69" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="awS-81-GOD"/>
+                                    <constraint firstAttribute="width" constant="100" id="ygh-bp-LMB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xfo-Rz-36X" firstAttribute="top" secondItem="h4B-kL-YdG" secondAttribute="bottom" constant="10" id="03P-sL-gh0"/>
+                            <constraint firstItem="0Bv-Hn-CkE" firstAttribute="top" secondItem="h4B-kL-YdG" secondAttribute="bottom" constant="5" id="8BE-GY-ObY"/>
+                            <constraint firstItem="X4M-He-aE1" firstAttribute="centerX" secondItem="e9M-JM-Gda" secondAttribute="centerX" id="Lk0-ue-IJj"/>
+                            <constraint firstItem="X4M-He-aE1" firstAttribute="top" secondItem="h4B-kL-YdG" secondAttribute="bottom" constant="40" id="f5y-OO-3HG"/>
+                            <constraint firstItem="0Bv-Hn-CkE" firstAttribute="leading" secondItem="xfo-Rz-36X" secondAttribute="trailing" id="fHo-0d-VvP"/>
+                            <constraint firstItem="xfo-Rz-36X" firstAttribute="leading" secondItem="e9M-JM-Gda" secondAttribute="leadingMargin" constant="-10" id="iL3-iX-6yw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="照片选择" id="y9k-MA-c93"/>
+                    <connections>
+                        <outlet property="PhotoNumberText" destination="0Bv-Hn-CkE" id="M0D-rm-ruR"/>
+                        <outlet property="addBtn" destination="X4M-He-aE1" id="Xby-Jx-fXU"/>
+                        <outlet property="lable" destination="xfo-Rz-36X" id="KI4-wF-ZTV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d66-Oo-jdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-294" y="64"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add-photo" width="71" height="71"/>
+    </resources>
 </document>
