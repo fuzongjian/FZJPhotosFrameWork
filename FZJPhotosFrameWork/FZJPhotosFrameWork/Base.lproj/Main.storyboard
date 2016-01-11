@@ -20,22 +20,22 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxi-83-pUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-978" y="64"/>
+            <point key="canvasLocation" x="-884" y="-1330"/>
         </scene>
         <!--Jenter Album Controller-->
         <scene sceneID="Hxk-8Y-NdG">
             <objects>
                 <tableViewController storyboardIdentifier="enterAlbum" id="i1a-Le-uMa" customClass="FZJenterAlbumController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PRM-Bo-GIP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PRM-Bo-GIP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="apT-pC-NwA">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="enterCell" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="enterCell" id="apT-pC-NwA" customClass="FZJenterAlbumCell">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="apT-pC-NwA" id="qTM-t0-DcM">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -48,7 +48,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ImP-kc-sVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-820" y="803"/>
+            <point key="canvasLocation" x="-664" y="-1572"/>
         </scene>
         <!--照片选择-->
         <scene sceneID="pEb-TF-Cqu">
@@ -83,7 +83,7 @@
                                     <constraint firstAttribute="height" constant="20" id="feQ-D3-US1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="默认10张" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Bv-Hn-CkE">
@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d66-Oo-jdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-294" y="64"/>
+            <point key="canvasLocation" x="-186" y="-1324"/>
         </scene>
     </scenes>
     <resources>

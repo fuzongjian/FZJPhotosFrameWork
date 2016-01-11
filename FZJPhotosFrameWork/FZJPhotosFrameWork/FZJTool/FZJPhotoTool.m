@@ -66,38 +66,78 @@
     /**
      *  获取多有的系统相册
      */
-//    PHFetchResult * smartAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
-//    [smartAlbum enumerateObjectsUsingBlock:^(PHAssetCollection * _Nonnull collection, NSUInteger idx, BOOL * _Nonnull stop) {
-//        if (!([collection.localizedTitle isEqualToString:@"Recently Deleted"] || [collection.localizedTitle isEqualToString:@"Videos"])) {
-//           PHFetchResult * result = [self fetchAssetsInAssetCollection:collection ascending:NO];
-//            if (result.count > 0) {
-//                FZJPhotoList * list = [[FZJPhotoList alloc]init];
-//                list.title = [self transformAblumTitle:collection.localizedTitle];
-//                list.photoNum = result.count;
-//                list.firstAsset = result.firstObject;
-//                list.assetCollection = collection;
-//                [photoList addObject:list];
-//            }
-//        }
-//    }];
+    PHFetchResult * smartAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    [smartAlbum enumerateObjectsUsingBlock:^(PHAssetCollection * _Nonnull collection, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (!([collection.localizedTitle isEqualToString:@"Recently Deleted"] || [collection.localizedTitle isEqualToString:@"Videos"])) {
+           PHFetchResult * result = [self fetchAssetsInAssetCollection:collection ascending:NO];
+            if (result.count > 0) {
+                FZJPhotoList * list = [[FZJPhotoList alloc]init];
+                list.title = [self transformAblumTitle:collection.localizedTitle];
+                list.photoNum = result.count;
+                list.firstAsset = result.firstObject;
+                list.assetCollection = collection;
+                [photoList addObject:list];
+            }
+        }
+    }];
     /**
      *  用户创建的相册
      */
-//    PHFetchResult * userAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil];
-//    [userAlbum enumerateObjectsUsingBlock:^(PHAssetCollection * _Nonnull collection, NSUInteger idx, BOOL * _Nonnull stop) {
-//        PHFetchResult *result = [self fetchAssetsInAssetCollection:collection ascending:NO];
-//        if (result.count > 0) {
-//            FZJPhotoList * list = [[FZJPhotoList alloc]init];
-//            list.title = [self transformAblumTitle:collection.localizedTitle];
-//            list.photoNum = result.count;
-//            list.firstAsset = result.firstObject;
-//            list.assetCollection = collection;
-//            [photoList addObject:list];
-//
-//        }
-//    }];
+    PHFetchResult * userAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil];
+    [userAlbum enumerateObjectsUsingBlock:^(PHAssetCollection * _Nonnull collection, NSUInteger idx, BOOL * _Nonnull stop) {
+        PHFetchResult *result = [self fetchAssetsInAssetCollection:collection ascending:NO];
+        if (result.count > 0) {
+            FZJPhotoList * list = [[FZJPhotoList alloc]init];
+            list.title = [self transformAblumTitle:collection.localizedTitle];
+            if (list.title == nil) {
+                list.title = collection.localizedTitle;
+            }
+            list.photoNum = result.count;
+            list.firstAsset = result.firstObject;
+            list.assetCollection = collection;
+            [photoList addObject:list];
+
+        }
+    }];
     
     
     return photoList;
 }
+#pragma mark ---   获取asset相对应的照片
+-(void)getImageByAsset:(PHAsset *)asset makeSize:(CGSize)size makeResizeMode:(PHImageRequestOptionsResizeMode)resizeMode completion:(void (^)(UIImage *))completion{
+    PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
+    /**
+     resizeMode：对请求的图像怎样缩放。有三种选择：None，不缩放；Fast，尽快地提供接近或稍微大于要求的尺寸；Exact，精准提供要求的尺寸。
+     deliveryMode：图像质量。有三种值：Opportunistic，在速度与质量中均衡；HighQualityFormat，不管花费多长时间，提供高质量图像；FastFormat，以最快速度提供好的质量。
+     这个属性只有在 synchronous 为 true 时有效。
+     */
+    option.resizeMode = resizeMode;//控制照片尺寸
+    //option.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;//控制照片质量
+    //option.synchronous = YES;
+    option.networkAccessAllowed = YES;
+    //param：targetSize 即你想要的图片尺寸，若想要原尺寸则可输入PHImageManagerMaximumSize
+    [[PHCachingImageManager defaultManager] requestImageForAsset:asset targetSize:size contentMode:PHImageContentModeAspectFit options:option resultHandler:^(UIImage * _Nullable image, NSDictionary * _Nullable info) {
+        completion(image);
+    }];
+
+}
+
+#pragma mark ----  取到所有的asset资源
+- (NSArray<PHAsset *> *)getAllAssetInPhotoAblumWithAscending:(BOOL)ascending{
+    NSMutableArray<PHAsset *> *assets = [NSMutableArray array];
+    
+    PHFetchOptions *option = [[PHFetchOptions alloc] init];
+    //ascending 为YES时，按照照片的创建时间升序排列;为NO时，则降序排列
+    option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:ascending]];
+    
+    PHFetchResult *result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:option];
+    
+    [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        PHAsset *asset = (PHAsset *)obj;
+        [assets addObject:asset];
+    }];
+    
+    return assets;
+}
+
 @end

@@ -23,6 +23,7 @@
 		3A56FE8B1C42515500970663 /* FZJenterAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE891C42515500970663 /* FZJenterAlbumCell.m */; };
 		3A56FE8C1C42515500970663 /* FZJenterAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A56FE8A1C42515500970663 /* FZJenterAlbumCell.xib */; };
 		3A56FE8E1C425FAE00970663 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A56FE8D1C425FAE00970663 /* Photos.framework */; };
+		3A678E9A1C4328AE006DA41F /* FZJPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A678E991C4328AE006DA41F /* FZJPhotoModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		3A56FE891C42515500970663 /* FZJenterAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJenterAlbumCell.m; sourceTree = "<group>"; };
 		3A56FE8A1C42515500970663 /* FZJenterAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FZJenterAlbumCell.xib; sourceTree = "<group>"; };
 		3A56FE8D1C425FAE00970663 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		3A678E981C4328AE006DA41F /* FZJPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJPhotoModel.h; sourceTree = "<group>"; };
+		3A678E991C4328AE006DA41F /* FZJPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJPhotoModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +175,8 @@
 		3A56FE661C422D0200970663 /* FZJModel */ = {
 			isa = PBXGroup;
 			children = (
+				3A678E981C4328AE006DA41F /* FZJPhotoModel.h */,
+				3A678E991C4328AE006DA41F /* FZJPhotoModel.m */,
 			);
 			path = FZJModel;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				TargetAttributes = {
 					3A56FE291C4221AB00970663 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = M5JU2R9TYN;
 					};
 					3A56FE421C4221AB00970663 = {
 						CreatedOnToolsVersion = 7.1;
@@ -359,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A678E9A1C4328AE006DA41F /* FZJPhotoModel.m in Sources */,
 				3A56FE321C4221AB00970663 /* AppDelegate.m in Sources */,
 				3A56FE741C423CAE00970663 /* FZJViewController.m in Sources */,
 				3A56FE2F1C4221AB00970663 /* main.m in Sources */,
@@ -507,10 +514,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FZJPhotosFrameWork/FZJCommon/FZJPCH.pch";
 				INFOPLIST_FILE = FZJPhotosFrameWork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = FZJ.FZJPhotosFrameWork;
+				PRODUCT_BUNDLE_IDENTIFIER = fuzongjian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -519,10 +528,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FZJPhotosFrameWork/FZJCommon/FZJPCH.pch";
 				INFOPLIST_FILE = FZJPhotosFrameWork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = FZJ.FZJPhotosFrameWork;
+				PRODUCT_BUNDLE_IDENTIFIER = fuzongjian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -594,6 +605,7 @@
 				3A56FE591C4221AB00970663 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A56FE5A1C4221AB00970663 /* Build configuration list for PBXNativeTarget "FZJPhotosFrameWorkTests" */ = {
 			isa = XCConfigurationList;
@@ -602,6 +614,7 @@
 				3A56FE5C1C4221AB00970663 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A56FE5D1C4221AB00970663 /* Build configuration list for PBXNativeTarget "FZJPhotosFrameWorkUITests" */ = {
 			isa = XCConfigurationList;
@@ -610,6 +623,7 @@
 				3A56FE5F1C4221AB00970663 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

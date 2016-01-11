@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self.tableView registerNib:[UINib nibWithNibName:@"FZJenterAlbumCell" bundle:nil] forCellReuseIdentifier:@"enterCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,10 +42,15 @@
     
     FZJenterAlbumCell *cell = [tableView dequeueReusableCellWithIdentifier:@"enterCell" forIndexPath:indexPath];
     
-//    FZJPhotoList * list = _photoList[indexPath.row];
+    FZJPhotoList * list = _photoList[indexPath.row];
     
-//    [FZJPhotoTool defaultFZJPhotoTool] ;
-    
+    [[FZJPhotoTool defaultFZJPhotoTool] getImageByAsset:list.firstAsset makeSize:CGSizeMake(80, 80) makeResizeMode:PHImageRequestOptionsResizeModeFast completion:^(UIImage *AssetImage) {
+        if (AssetImage) {
+            cell.iconImageView.image = AssetImage;
+        }
+    }];
+    cell.albumName.text = list.title;
+    cell.albumNumber.text = [NSString stringWithFormat:@"%d",(int)list.photoNum];
     return cell;
 }
 

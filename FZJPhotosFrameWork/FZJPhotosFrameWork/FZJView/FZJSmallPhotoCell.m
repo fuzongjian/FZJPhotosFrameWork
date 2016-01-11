@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     
+    NSLog(@"lail");
     _ImageView.layer.cornerRadius = 5;
     _ImageView.layer.masksToBounds = YES;
     

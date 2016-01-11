@@ -9,8 +9,11 @@
 #import "FZJViewController.h"
 #import "FZJSmallPhotoCell.h"
 #import "FZJenterAlbumController.h"
+#import "FZJPhotoModel.h"
 
-@interface FZJViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+
+
+@interface FZJViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *lable;
 @property (weak, nonatomic) IBOutlet UITextField *PhotoNumberText;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
@@ -19,7 +22,7 @@
 /**
  *  数据源
  */
-@property(nonatomic,strong)NSMutableArray * dataArr;
+@property(nonatomic,strong)NSMutableArray<FZJPhotoModel *> * dataArr;
 
 /**
  *  最多能选择多少张照片
@@ -60,13 +63,16 @@
     return 1;
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return _dataArr.count;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     FZJSmallPhotoCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SmallPhotoCell" forIndexPath:indexPath];
     cell.ImageView.image = nil;
-    cell.backgroundColor = [UIColor redColor];
+    FZJPhotoModel * model = _dataArr[indexPath.row];
+    [[FZJPhotoTool defaultFZJPhotoTool] getImageByAsset:model.asset makeSize:CGSizeMake(90, 90) makeResizeMode:PHImageRequestOptionsResizeModeFast completion:^(UIImage *AssetImage) {
+        cell.ImageView.image = AssetImage;
+    }];
     
     return cell;
 }
@@ -130,12 +136,9 @@
         
         if ([self FZJhaveAlbumAuthority]) {
             
-            
-           // UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"FZJViewController" bundle:nil];
-            
             FZJenterAlbumController * enter = [self.storyboard instantiateViewControllerWithIdentifier:@"enterAlbum"];
+            enter.photoList = [[FZJPhotoTool defaultFZJPhotoTool] getAllPhotoList];
             [self.navigationController pushViewController:enter animated:YES];
-            
             
         }else{
             
@@ -148,7 +151,7 @@
     UIAlertAction * take = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         if ([self FZJhaveCameraAuthority]) {
-            
+            [self takePhotoFromiPhone];
         }else{
             
         }
@@ -163,7 +166,41 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-
+#pragma mark --  照相 
+-(void)takePhotoFromiPhone{
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController * picker = [[UIImagePickerController alloc]init];
+        picker.delegate = self;
+        picker.allowsEditing = NO;
+        picker.sourceType = sourceType;
+        [self presentViewController:picker animated:YES completion:nil];
+    }else{
+        NSLog(@"该设备没有摄像头");
+    }
+}
+#pragma mark -- 照相的代理的方法
+/**
+ *  写入相册
+ */
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+/**
+ *  写入相册后的方法
+ */
+- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo{
+    if (!error) {
+        PHAsset * asset = [[[FZJPhotoTool defaultFZJPhotoTool] getAllAssetInPhotoAblumWithAscending:YES] lastObject];
+        FZJPhotoModel * model = [[FZJPhotoModel alloc]init];
+        model.asset = asset;
+        model.imageName = [asset valueForKey:@"filename"];
+        [_dataArr addObject:model];
+        [self.FZJCollection reloadData];
+    }
+}
 #pragma mark --  判断对相册和相机的使用权限
 /**
  *  相册的使用权限

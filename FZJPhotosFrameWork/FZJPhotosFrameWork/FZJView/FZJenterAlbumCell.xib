@@ -21,9 +21,8 @@
                             <constraint firstAttribute="width" constant="80" id="GYa-hX-eBL"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="相册名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzA-bU-Zrb">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="相册名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzA-bU-Zrb">
                         <rect key="frame" x="100" y="10" width="255" height="40"/>
-                        <color key="backgroundColor" red="0.406717194" green="1" blue="0.1567727887" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="RKT-PQ-YdE"/>
                         </constraints>
@@ -41,6 +40,13 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aM6-A1-y5T">
+                        <rect key="frame" x="0.0" y="99" width="375" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="4QA-bs-vWF"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="uzA-bU-Zrb" firstAttribute="leading" secondItem="LEX-mw-hX2" secondAttribute="trailing" constant="10" id="IGd-Zj-5kZ"/>
@@ -49,10 +55,13 @@
             </tableViewCellContentView>
             <constraints>
                 <constraint firstItem="uzA-bU-Zrb" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" constant="10" id="CR2-ju-ZNz"/>
+                <constraint firstAttribute="trailing" secondItem="aM6-A1-y5T" secondAttribute="trailing" id="GJL-Hw-nhk"/>
                 <constraint firstItem="LEX-mw-hX2" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="10" id="J4C-zU-19H"/>
+                <constraint firstItem="aM6-A1-y5T" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="L3M-tq-1MB"/>
                 <constraint firstAttribute="trailing" secondItem="uzA-bU-Zrb" secondAttribute="trailing" constant="20" id="MDT-2c-GA8"/>
                 <constraint firstAttribute="bottom" secondItem="vQG-XK-PbI" secondAttribute="bottom" constant="10" id="WPF-bj-whw"/>
                 <constraint firstItem="LEX-mw-hX2" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" constant="10" id="czw-YA-SJf"/>
+                <constraint firstAttribute="bottom" secondItem="aM6-A1-y5T" secondAttribute="bottom" id="eqV-Cp-3u0"/>
             </constraints>
             <connections>
                 <outlet property="albumName" destination="uzA-bU-Zrb" id="1bP-Dz-7rX"/>

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Photos/Photos.h>
 
 @interface FZJPhotoList : NSObject
 /**
@@ -20,11 +21,14 @@
 /**
  *  该相册的第一张图片
  */
-//@property(nonatomic,strong)PHAsset * firstAsset;
-///**
-// *  同过该属性可以取得该相册的所有照片
-// */
-//@property(nonatomic,strong)PHAssetCollection * assetCollection;
+@property(nonatomic,strong)PHAsset * firstAsset;
+/**
+ *  同过该属性可以取得该相册的所有照片
+ */
+@property(nonatomic,strong)PHAssetCollection * assetCollection;
+
+
+
 
 @end
 
@@ -38,6 +42,7 @@
 
 -(NSArray<FZJPhotoList *> *)getAllPhotoList;
 
-
+-(void)getImageByAsset:(PHAsset *)asset makeSize:(CGSize)size makeResizeMode:(PHImageRequestOptionsResizeMode)resizeMode completion:(void (^)(UIImage * AssetImage))completion;
+-(NSArray<PHAsset *> *)getAllAssetInPhotoAblumWithAscending:(BOOL)ascending;
 
 @end
