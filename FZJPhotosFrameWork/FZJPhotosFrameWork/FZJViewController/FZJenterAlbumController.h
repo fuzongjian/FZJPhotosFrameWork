@@ -12,4 +12,5 @@
 
 @property(nonatomic,strong)NSArray<FZJPhotoList *> * photoList;
 
+
 @end

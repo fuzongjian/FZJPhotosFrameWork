@@ -140,4 +140,15 @@
     return assets;
 }
 
+#pragma mark ---  获得指定相册的所有照片
+
+- (NSArray<PHAsset *> *)getAssetsInAssetCollection:(PHAssetCollection *)assetCollection ascending:(BOOL)ascending{
+    NSMutableArray<PHAsset *> *arr = [NSMutableArray array];
+    
+    PHFetchResult *result = [self fetchAssetsInAssetCollection:assetCollection ascending:ascending];
+    [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [arr addObject:obj];
+    }];
+    return arr;
+}
 @end

@@ -38,11 +38,38 @@
 @interface FZJPhotoTool : NSObject
 
 +(instancetype)defaultFZJPhotoTool;
-
+/**
+ *  获得所有的相册
+ *
+ *  @return  FZJPhotoList样式的相册
+ */
 
 -(NSArray<FZJPhotoList *> *)getAllPhotoList;
 
+/**
+ *  取到对应的照片实体
+ *
+ *  @param asset      索取照片实体的媒介
+ *  @param size       实际想要的照片大小
+ *  @param resizeMode 控制照片尺寸
+ *  @param completion block返回照片实体
+ */
 -(void)getImageByAsset:(PHAsset *)asset makeSize:(CGSize)size makeResizeMode:(PHImageRequestOptionsResizeMode)resizeMode completion:(void (^)(UIImage * AssetImage))completion;
+
+/**
+ *   取得所有的照片资源
+ *
+ *  @param ascending 排序方式
+ *
+ *  @return 照片资源
+ */
+
 -(NSArray<PHAsset *> *)getAllAssetInPhotoAblumWithAscending:(BOOL)ascending;
+
+/**
+ *  获取指定相册内的所有图片
+ */
+- (NSArray<PHAsset *> *)getAssetsInAssetCollection:(PHAssetCollection *)assetCollection ascending:(BOOL)ascending;
+
 
 @end

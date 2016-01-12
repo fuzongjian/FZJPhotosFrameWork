@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9058" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertViewController">
+            <connections>
+                <outlet property="imageView" destination="NcW-VC-yzk" id="vra-Xz-oex"/>
+                <outlet property="message" destination="GrE-Do-QHn" id="qlp-4b-ifK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="264" height="183"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="NcW-VC-yzk">
+                    <rect key="frame" x="77" y="0.0" width="110" height="110"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrE-Do-QHn">
+                    <rect key="frame" x="0.0" y="110" width="264" height="73"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="NcW-VC-yzk" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="3:5" id="BGd-N4-QEF"/>
+                <constraint firstItem="NcW-VC-yzk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Mb8-pf-UPy"/>
+                <constraint firstItem="NcW-VC-yzk" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="3:5" id="MvI-et-7Fk"/>
+                <constraint firstAttribute="trailing" secondItem="GrE-Do-QHn" secondAttribute="trailing" id="O7U-21-tef"/>
+                <constraint firstItem="GrE-Do-QHn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Q8p-nd-0fw"/>
+                <constraint firstItem="NcW-VC-yzk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iLZ-Ce-SQs"/>
+                <constraint firstItem="GrE-Do-QHn" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="2:5" id="wMh-hn-mOD"/>
+                <constraint firstAttribute="bottom" secondItem="GrE-Do-QHn" secondAttribute="bottom" id="xm2-ee-nx8"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="464" y="270.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="warning" width="90" height="90"/>
+    </resources>
+</document>

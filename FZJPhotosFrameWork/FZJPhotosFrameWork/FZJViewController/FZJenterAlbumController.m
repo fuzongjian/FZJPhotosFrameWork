@@ -8,7 +8,7 @@
 
 #import "FZJenterAlbumController.h"
 #import "FZJenterAlbumCell.h"
-
+#import "FZJSmallPhotoController.h"
 
 @interface FZJenterAlbumController ()
 
@@ -18,6 +18,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self configEnterAlbumControllerUI];
+    
+}
+
+
+-(void)configEnterAlbumControllerUI{
+    /**
+     *   标题
+     */
+    UILabel * title = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
+    title.textAlignment = NSTextAlignmentCenter;
+    title.text = @"相册";
+    title.font = [UIFont systemFontOfSize:15];
+    self.navigationItem.titleView = title;
+    
+    /**
+     *  返回按钮
+     */
+    UIButton * back = [UIButton buttonWithType:UIButtonTypeCustom];
+    [back setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    back.frame = CGRectMake(0, 0, 44, 44);
+    [back addTarget:self action:@selector(backBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:back];
+    
+    /**
+     *  表格注册
+     */
     [self.tableView registerNib:[UINib nibWithNibName:@"FZJenterAlbumCell" bundle:nil] forCellReuseIdentifier:@"enterCell"];
 }
 
@@ -58,7 +86,19 @@
     return 100;
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+//    FZJSmallPhotoController * smallPhoto = [[FZJSmallPhotoController alloc]init];
+//    FZJPhotoList * list = _photoList[indexPath.row];
+    
+    
+}
+#pragma mark --- 返回按钮点击事件
+-(void)backBtnClicked{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
