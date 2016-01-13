@@ -12,6 +12,7 @@
 #import "FZJHeader.h"
 
 #import "UIViewExt.h"
+#import "UIButtonExt.h"
 
 #import "FZJPhotoTool.h"
 

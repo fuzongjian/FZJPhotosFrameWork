@@ -8,6 +8,9 @@
 
 #import "FZJSuperViewController.h"
 
+typedef void (^returnBackPhotoArr)(id data);
+
+
 @interface FZJBigPhotoController : FZJSuperViewController
 /**
  *  数据源
@@ -21,5 +24,10 @@
  *  能选择照片的上限
  */
 @property(nonatomic,assign)NSInteger addNum;
+
+@property(nonatomic,copy)returnBackPhotoArr returnBlock;
+
+-(void)returnBack:(returnBackPhotoArr)block;
+
 
 @end

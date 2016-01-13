@@ -9,24 +9,34 @@
 #import "FZJSmallPhotoController.h"
 #import "FZJSmallPhotoCell.h"
 #import "UIButtonExt.h"
+#import "FZJBigPhotoController.h"
 @interface FZJSmallPhotoController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 /**
  *  创建collectionView用于展示
  */
 @property(nonatomic,strong)UICollectionView * smallCollect;
+/**
+ *  存放已经选择的照片
+ */
+@property(nonatomic,strong)NSMutableArray * selectedPhoto;
+/**
+ *  展示当前选择照片的动态
+ */
+@property(nonatomic,strong)UILabel * middle;
 
 @end
 @implementation FZJSmallPhotoController
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self configSmallPhotoControllerUI];
+    [self showSelectedStatusUI];
 }
 #pragma mark --
 #pragma mark 初始化UI
 -(void)configSmallPhotoControllerUI{
     self.view.backgroundColor = [UIColor whiteColor];
     [self setCustomTitle:self.smallTitle];
-    
+    _selectedPhoto = [NSMutableArray array];
     
     UICollectionViewFlowLayout * flowLayOut = [[UICollectionViewFlowLayout alloc] init];
     [flowLayOut setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -37,15 +47,25 @@
     _smallCollect.dataSource = self;
     _smallCollect.backgroundColor = [UIColor whiteColor];
     
-//    UICollectionViewFlowLayout * flowLayOut = [[UICollectionViewFlowLayout alloc]init];
-//    [flowLayOut setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-//    _FZJCollection = [[UICollectionView alloc]initWithFrame:CGRectMake(10, _addBtn.origin.y + _addBtn.size.height + 10,SCREEN_WIDTH - 20, 100) collectionViewLayout:flowLayOut];
-//    [self.view addSubview:_FZJCollection];
-//    [_FZJCollection registerNib:[UINib nibWithNibName:@"FZJSmallPhotoCell" bundle:nil] forCellWithReuseIdentifier:@"SmallPhotoCell"];
-//    _FZJCollection.showsHorizontalScrollIndicator = NO;
-//    _FZJCollection.delegate = self;
-//    _FZJCollection.dataSource = self;
-//    _FZJCollection.backgroundColor = [UIColor whiteColor];
+}
+-(void)showSelectedStatusUI{
+    UIView * showView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 30, SCREEN_WIDTH, 30)];
+    showView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:showView];
+    
+    UILabel * middle = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * 0.3, 0, SCREEN_WIDTH * 0.4, 30)];
+    middle.textAlignment = NSTextAlignmentCenter;
+    middle.text = [NSString stringWithFormat:@"%d/%d",0,(int)self.addNum];
+    _middle = middle;
+    [showView addSubview:middle];
+    
+    UIButton * sure = [UIButton buttonWithType:UIButtonTypeSystem];
+    [sure setTitle:@"确定" forState:UIControlStateNormal];
+    sure.frame = CGRectMake(SCREEN_WIDTH * 0.8, 0, SCREEN_WIDTH * 0.2, 30);
+    sure.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [sure addTarget:self action:@selector(sureBtnClickBackToRoot) forControlEvents:UIControlEventTouchUpInside];
+    [showView addSubview:sure];
+
 }
 #pragma mark--
 #pragma mark 数据请求
@@ -55,11 +75,31 @@
 
 #pragma mark--
 #pragma mark 事件
+-(void)sureBtnClickBackToRoot{
+    
+    if (self.returnBlock && self.selectedPhoto.count) {
+        self.returnBlock(self.selectedPhoto);
+    }
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+
 #pragma mark --- cell的照片选择事件
 -(void)smallCellBtnClicked:(UIButtonExt *)btn{
     btn.selected = !btn.selected;
-    NSLog(@"---%d",btn.selected);
-    
+    if (btn.selected) {//为1 则直接加进数组
+        FZJPhotoModel * model = [[FZJPhotoModel alloc]init];
+        model.asset = _fetchResult[btn.index];
+        model.imageName = [_fetchResult[btn.index] valueForKey:@"filename"];
+        [_selectedPhoto addObject:model];
+    }else{//为0 从数组中删除
+        for (FZJPhotoModel * model in _selectedPhoto) {
+            if ([model.imageName isEqualToString:[_fetchResult[btn.index] valueForKey:@"filename"]]) {
+                [_selectedPhoto removeObject:model];
+            }
+        }
+    }
+    _middle.text = [NSString stringWithFormat:@"%d/%d",(int)self.selectedPhoto.count,(int)self.addNum];
 }
 #pragma mark--
 #pragma mark  代理
@@ -78,7 +118,14 @@
         cell.ImageView.image = AssetImage;
     }];
     cell.ChooseBtn.index = indexPath.row;
+    cell.ChooseBtn.selected = NO;
     [cell.ChooseBtn addTarget:self action:@selector(smallCellBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    for (FZJPhotoModel * model  in _selectedPhoto) {
+        if ([model.imageName isEqualToString:[_fetchResult[indexPath.row] valueForKey:@"filename"]]) {
+            cell.ChooseBtn.selected = YES;
+        }
+    }
     return cell;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -105,7 +152,19 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"-------------%d",(int)indexPath.row);
+    
+    FZJBigPhotoController * bigPhoto = [[FZJBigPhotoController alloc]init];
+    bigPhoto.fetchResult = self.fetchResult;
+    bigPhoto.addNum = self.addNum;
+    bigPhoto.ChooseArr = self.selectedPhoto;
+    [bigPhoto returnBack:^(id data) {
+        _selectedPhoto = [NSMutableArray arrayWithArray:data];
+        [self.smallCollect reloadData];
+    }];
+    bigPhoto.returnBlock = self.returnBlock;
+    
+    [self.navigationController pushViewController:bigPhoto animated:YES];
+
 }
 
 #pragma mark--

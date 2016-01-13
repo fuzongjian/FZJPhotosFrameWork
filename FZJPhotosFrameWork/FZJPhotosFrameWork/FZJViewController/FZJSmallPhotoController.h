@@ -8,6 +8,9 @@
 
 #import "FZJSuperViewController.h"
 
+
+typedef void (^returnBackPhotoArr)(id data);
+
 @interface FZJSmallPhotoController : FZJSuperViewController
 /**
  *  小图浏览的相册标题
@@ -25,6 +28,7 @@
  */
 @property(nonatomic,assign)NSInteger addNum;
 
+@property(nonatomic,copy)returnBackPhotoArr returnBlock;
 
 
 @end

@@ -91,6 +91,8 @@
     FZJSmallPhotoController * smallPhoto = [[FZJSmallPhotoController alloc]init];
     FZJPhotoList * list = _photoList[indexPath.row];
     smallPhoto.smallTitle = list.title;
+    smallPhoto.addNum = self.addNum;
+    smallPhoto.returnBlock = self.returnBlock;
     smallPhoto.fetchResult = [[FZJPhotoTool defaultFZJPhotoTool] getAssetsInAssetCollection:list.assetCollection ascending:YES];
     [self.navigationController pushViewController:smallPhoto animated:YES];
     
@@ -102,6 +104,10 @@
     [self.navigationController popViewControllerAnimated:YES];
     
 }
+-(void)enterAlbum:(returnBackPhotoArr)block{
+    self.returnBlock = block;
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

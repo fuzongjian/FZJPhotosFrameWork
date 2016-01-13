@@ -69,6 +69,9 @@
     
     FZJSmallPhotoCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SmallPhotoCell" forIndexPath:indexPath];
     cell.ImageView.image = nil;
+    cell.ChooseBtn.hidden = YES;
+    cell.ImageView.layer.cornerRadius = 5;
+    cell.ImageView.layer.masksToBounds = YES;
     FZJPhotoModel * model = _dataArr[indexPath.row];
     [[FZJPhotoTool defaultFZJPhotoTool] getImageByAsset:model.asset makeSize:CGSizeMake(90, 90) makeResizeMode:PHImageRequestOptionsResizeModeFast completion:^(UIImage *AssetImage) {
         cell.ImageView.image = AssetImage;
@@ -156,6 +159,12 @@
             FZJenterAlbumController * enter = [self.storyboard instantiateViewControllerWithIdentifier:@"enterAlbum"];
             enter.photoList = [[FZJPhotoTool defaultFZJPhotoTool] getAllPhotoList];
             enter.addNum = self.MaxNumber - _dataArr.count;
+            
+            [enter enterAlbum:^(id data) {
+                [_dataArr addObjectsFromArray:data];
+                [self.FZJCollection reloadData];
+            }];
+            
             [self.navigationController pushViewController:enter animated:YES];
             
         }else{

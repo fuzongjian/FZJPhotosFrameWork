@@ -25,6 +25,8 @@
 		3A56FE8E1C425FAE00970663 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A56FE8D1C425FAE00970663 /* Photos.framework */; };
 		3A5D99FC1C45D15500E6DCA1 /* UIButtonExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D99FB1C45D15500E6DCA1 /* UIButtonExt.m */; };
 		3A5D99FF1C45DB6400E6DCA1 /* FZJBigPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D99FE1C45DB6400E6DCA1 /* FZJBigPhotoController.m */; };
+		3A5D9A031C462E4800E6DCA1 /* FZJBigPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D9A011C462E4800E6DCA1 /* FZJBigPhotoCell.m */; };
+		3A5D9A041C462E4800E6DCA1 /* FZJBigPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D9A021C462E4800E6DCA1 /* FZJBigPhotoCell.xib */; };
 		3A678E9A1C4328AE006DA41F /* FZJPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A678E991C4328AE006DA41F /* FZJPhotoModel.m */; };
 		3A678E9E1C435805006DA41F /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A678E9C1C435805006DA41F /* AlertViewController.m */; };
 		3A678E9F1C435805006DA41F /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A678E9D1C435805006DA41F /* AlertViewController.xib */; };
@@ -85,6 +87,9 @@
 		3A5D99FB1C45D15500E6DCA1 /* UIButtonExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonExt.m; sourceTree = "<group>"; };
 		3A5D99FD1C45DB6400E6DCA1 /* FZJBigPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJBigPhotoController.h; sourceTree = "<group>"; };
 		3A5D99FE1C45DB6400E6DCA1 /* FZJBigPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJBigPhotoController.m; sourceTree = "<group>"; };
+		3A5D9A001C462E4800E6DCA1 /* FZJBigPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJBigPhotoCell.h; sourceTree = "<group>"; };
+		3A5D9A011C462E4800E6DCA1 /* FZJBigPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJBigPhotoCell.m; sourceTree = "<group>"; };
+		3A5D9A021C462E4800E6DCA1 /* FZJBigPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FZJBigPhotoCell.xib; sourceTree = "<group>"; };
 		3A678E981C4328AE006DA41F /* FZJPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJPhotoModel.h; sourceTree = "<group>"; };
 		3A678E991C4328AE006DA41F /* FZJPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJPhotoModel.m; sourceTree = "<group>"; };
 		3A678E9B1C435805006DA41F /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
@@ -213,6 +218,9 @@
 		3A56FE681C422D0200970663 /* FZJView */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D9A001C462E4800E6DCA1 /* FZJBigPhotoCell.h */,
+				3A5D9A011C462E4800E6DCA1 /* FZJBigPhotoCell.m */,
+				3A5D9A021C462E4800E6DCA1 /* FZJBigPhotoCell.xib */,
 				3A56FE781C4242BD00970663 /* FZJSmallPhotoCell.h */,
 				3A56FE791C4242BD00970663 /* FZJSmallPhotoCell.m */,
 				3A56FE7A1C4242BD00970663 /* FZJSmallPhotoCell.xib */,
@@ -375,6 +383,7 @@
 				3A56FE3D1C4221AB00970663 /* LaunchScreen.storyboard in Resources */,
 				3A56FE8C1C42515500970663 /* FZJenterAlbumCell.xib in Resources */,
 				3A56FE3A1C4221AB00970663 /* Assets.xcassets in Resources */,
+				3A5D9A041C462E4800E6DCA1 /* FZJBigPhotoCell.xib in Resources */,
 				3A56FE381C4221AB00970663 /* Main.storyboard in Resources */,
 				3A56FE7C1C4242BD00970663 /* FZJSmallPhotoCell.xib in Resources */,
 				3A678E9F1C435805006DA41F /* AlertViewController.xib in Resources */,
@@ -409,6 +418,7 @@
 				3A56FE321C4221AB00970663 /* AppDelegate.m in Sources */,
 				3A56FE741C423CAE00970663 /* FZJViewController.m in Sources */,
 				3A56FE2F1C4221AB00970663 /* main.m in Sources */,
+				3A5D9A031C462E4800E6DCA1 /* FZJBigPhotoCell.m in Sources */,
 				3AB703181C44DE2C00A5A5C9 /* FZJSmallPhotoController.m in Sources */,
 				3AB703151C44DC2700A5A5C9 /* FZJSuperViewController.m in Sources */,
 				3A56FE7B1C4242BD00970663 /* FZJSmallPhotoCell.m in Sources */,

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9058" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BigPhotoCell" id="gTV-IL-0wX" customClass="FZJBigPhotoCell">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="xgf-la-jfi">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VWx-fA-Vxx">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="52y-P1-4L4">
+                                <rect key="frame" x="32" y="31" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="VWx-fA-Vxx" firstAttribute="leading" secondItem="xgf-la-jfi" secondAttribute="leading" id="5VD-h1-k1t"/>
+                            <constraint firstItem="VWx-fA-Vxx" firstAttribute="centerY" secondItem="xgf-la-jfi" secondAttribute="centerY" id="7CU-JD-rZ7"/>
+                            <constraint firstItem="VWx-fA-Vxx" firstAttribute="centerX" secondItem="xgf-la-jfi" secondAttribute="centerX" id="9Bq-63-EZL"/>
+                            <constraint firstItem="VWx-fA-Vxx" firstAttribute="top" secondItem="xgf-la-jfi" secondAttribute="top" id="DF7-qs-YbJ"/>
+                            <constraint firstAttribute="bottom" secondItem="VWx-fA-Vxx" secondAttribute="bottom" id="Zrq-Qg-MUc"/>
+                            <constraint firstItem="52y-P1-4L4" firstAttribute="centerX" secondItem="xgf-la-jfi" secondAttribute="centerX" id="rVM-iJ-rSp"/>
+                            <constraint firstAttribute="trailing" secondItem="VWx-fA-Vxx" secondAttribute="trailing" id="uA3-33-EVW"/>
+                            <constraint firstItem="52y-P1-4L4" firstAttribute="centerY" secondItem="xgf-la-jfi" secondAttribute="centerY" id="w6L-Sd-7EQ"/>
+                        </constraints>
+                    </scrollView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="xgf-la-jfi" secondAttribute="trailing" id="VXu-SD-xes"/>
+                <constraint firstItem="xgf-la-jfi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XC5-Ba-IaG"/>
+                <constraint firstAttribute="bottom" secondItem="xgf-la-jfi" secondAttribute="bottom" id="Xn2-zE-7F7"/>
+                <constraint firstItem="xgf-la-jfi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kWf-MS-mAO"/>
+            </constraints>
+            <size key="customSize" width="90" height="88"/>
+            <connections>
+                <outlet property="ImageView" destination="VWx-fA-Vxx" id="fvY-8E-OJD"/>
+                <outlet property="Indicator" destination="52y-P1-4L4" id="Ojr-vW-g48"/>
+                <outlet property="ScrollView" destination="xgf-la-jfi" id="QCi-yS-HFA"/>
+            </connections>
+            <point key="canvasLocation" x="358" y="270"/>
+        </collectionViewCell>
+    </objects>
+</document>

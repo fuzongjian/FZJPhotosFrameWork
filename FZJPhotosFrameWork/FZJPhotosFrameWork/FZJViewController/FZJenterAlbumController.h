@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^returnBackPhotoArr)(id data);
+
 @interface FZJenterAlbumController : UITableViewController
 /**
  *  所有的相册
@@ -19,5 +21,8 @@
  */
 @property(nonatomic,assign)NSInteger addNum;
 
+@property(nonatomic,copy)returnBackPhotoArr returnBlock;
+
+-(void)enterAlbum:(returnBackPhotoArr)block;
 
 @end
