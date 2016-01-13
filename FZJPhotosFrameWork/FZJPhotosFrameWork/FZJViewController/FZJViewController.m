@@ -122,7 +122,24 @@
     }else{
          self.MaxNumber = 10;
     }
-    [self popChooseActionView];
+    
+    /**
+     *  每次点击添加按钮进行判断照片数量是否达到上限
+     */
+    
+    if (_dataArr.count > self.MaxNumber) {
+        
+        /**
+         *  跳转提示窗口
+         */
+        
+        
+    }else{
+        
+         [self popChooseActionView];
+        
+    }
+   
 }
 /**
  *  选择照片的弹出窗口
@@ -138,9 +155,12 @@
             
             FZJenterAlbumController * enter = [self.storyboard instantiateViewControllerWithIdentifier:@"enterAlbum"];
             enter.photoList = [[FZJPhotoTool defaultFZJPhotoTool] getAllPhotoList];
+            enter.addNum = self.MaxNumber - _dataArr.count;
             [self.navigationController pushViewController:enter animated:YES];
             
         }else{
+            
+            
             
         }
         

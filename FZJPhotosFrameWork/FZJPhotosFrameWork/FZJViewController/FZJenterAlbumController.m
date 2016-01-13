@@ -88,8 +88,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    FZJSmallPhotoController * smallPhoto = [[FZJSmallPhotoController alloc]init];
-//    FZJPhotoList * list = _photoList[indexPath.row];
+    FZJSmallPhotoController * smallPhoto = [[FZJSmallPhotoController alloc]init];
+    FZJPhotoList * list = _photoList[indexPath.row];
+    smallPhoto.smallTitle = list.title;
+    smallPhoto.fetchResult = [[FZJPhotoTool defaultFZJPhotoTool] getAssetsInAssetCollection:list.assetCollection ascending:YES];
+    [self.navigationController pushViewController:smallPhoto animated:YES];
     
     
 }

@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface FZJenterAlbumController : UITableViewController
-
+/**
+ *  所有的相册
+ */
 @property(nonatomic,strong)NSArray<FZJPhotoList *> * photoList;
+
+/**
+ *  所能选择的图片上限
+ */
+@property(nonatomic,assign)NSInteger addNum;
 
 
 @end

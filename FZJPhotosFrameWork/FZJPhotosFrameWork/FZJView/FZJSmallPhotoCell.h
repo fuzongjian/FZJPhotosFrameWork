@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UIButtonExt.h"
 @interface FZJSmallPhotoCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *ImageView;
+@property (weak, nonatomic) IBOutlet UIButtonExt *ChooseBtn;
 
 @end

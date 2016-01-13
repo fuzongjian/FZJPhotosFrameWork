@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9058" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,20 +16,34 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vlc-m7-88M">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMC-oV-nMP" customClass="UIButtonExt">
+                        <rect key="frame" x="78" y="2" width="20" height="20"/>
+                        <state key="normal" image="No"/>
+                        <state key="selected" image="AssetsPickerChecked"/>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstItem="MMC-oV-nMP" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="2:10" id="60R-nm-8ns"/>
+                <constraint firstItem="MMC-oV-nMP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="MII-9b-JfA"/>
                 <constraint firstItem="Vlc-m7-88M" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kkF-6T-txk"/>
+                <constraint firstItem="MMC-oV-nMP" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="2:10" id="va6-iF-9EI"/>
+                <constraint firstAttribute="trailing" secondItem="MMC-oV-nMP" secondAttribute="trailing" constant="2" id="vhX-v2-xN8"/>
                 <constraint firstAttribute="bottom" secondItem="Vlc-m7-88M" secondAttribute="bottom" id="xln-0a-ent"/>
                 <constraint firstAttribute="trailing" secondItem="Vlc-m7-88M" secondAttribute="trailing" id="xoI-Ef-3SK"/>
                 <constraint firstItem="Vlc-m7-88M" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yF1-Hp-HEF"/>
             </constraints>
             <size key="customSize" width="50" height="108"/>
             <connections>
+                <outlet property="ChooseBtn" destination="MMC-oV-nMP" id="NlU-jy-1cm"/>
                 <outlet property="ImageView" destination="Vlc-m7-88M" id="Fs8-48-bOn"/>
             </connections>
-            <point key="canvasLocation" x="470" y="193"/>
+            <point key="canvasLocation" x="683" y="293"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="AssetsPickerChecked" width="31" height="31"/>
+        <image name="No" width="44" height="44"/>
+    </resources>
 </document>
