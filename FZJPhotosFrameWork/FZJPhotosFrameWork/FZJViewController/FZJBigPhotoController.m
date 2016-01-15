@@ -26,15 +26,24 @@
  *  导航栏右侧的按钮
  */
 @property(nonatomic,strong)UIButtonExt * selectStatus;
+/**
+ *  中间的标题
+ */
+@property(nonatomic,strong)UILabel * titleLable;
+
 
 @end
 
 @implementation FZJBigPhotoController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self.bigCollect setContentOffset:CGPointMake((self.fetchResult.count - 1 - self.clickNum) * (SCREEN_WIDTH + margin), 0)];
+}
+
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self configBigPhotoControllerUI];
-    [self showSelectedStatusUI];
 }
 #pragma mark --
 #pragma mark 初始化UI
@@ -64,26 +73,15 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:quit];
     _selectStatus = quit;
     
-}
--(void)showSelectedStatusUI{
-    UIView * showView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 30, SCREEN_WIDTH, 30)];
-    showView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:showView];
     
-    UILabel * middle = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * 0.3, 0, SCREEN_WIDTH * 0.4, 30)];
-    middle.textAlignment = NSTextAlignmentCenter;
-    middle.text = [NSString stringWithFormat:@"%d/%d",(int)self.ChooseArr.count,(int)self.addNum];
-    _middle = middle;
-    [showView addSubview:middle];
-    
-    UIButton * sure = [UIButton buttonWithType:UIButtonTypeSystem];
-    [sure setTitle:@"确定" forState:UIControlStateNormal];
-    sure.frame = CGRectMake(SCREEN_WIDTH * 0.8, 0, SCREEN_WIDTH * 0.2, 30);
-    sure.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [sure addTarget:self action:@selector(sureBtnClickBackToRoot) forControlEvents:UIControlEventTouchUpInside];
-    [showView addSubview:sure];
+    UILabel * titleLable = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
+    titleLable.text = [NSString stringWithFormat:@"%d/%d",(int)self.clickNum,(int)self.fetchResult.count];
+    _titleLable = titleLable;
+    titleLable.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = titleLable;
     
 }
+
 #pragma mark--
 #pragma mark 数据请求
 
@@ -93,13 +91,7 @@
 #pragma mark--
 #pragma mark 事件
 
-#pragma mark ---  确定则直接返回到第一个界面显示照片
--(void)sureBtnClickBackToRoot{
-    if (self.returnBlock && self.ChooseArr.count) {
-        self.returnBlock(self.ChooseArr);
-    }
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
+
 #pragma mark ---  大图浏览对图片的增删改查
 
 -(void)selectStatus:(UIButtonExt *)select{
@@ -113,23 +105,33 @@
         for (FZJPhotoModel * model in self.ChooseArr) {
             if ([model.imageName isEqualToString:[self.fetchResult[select.index] valueForKey:@"filename"]]) {
                 [self.ChooseArr removeObject:model];
+                break;
             }
         }
     }
-    _middle.text = [NSString stringWithFormat:@"%d/%d",(int)self.ChooseArr.count,(int)self.addNum];
-    NSLog(@"----%@",self.ChooseArr);
 }
 #pragma mark ---  重写父类返回按钮点击事件
 
 -(void)SuperBackBtnClicked{
     
-    if (self.returnBlock && self.ChooseArr.count) {
-        self.returnBlock(self.ChooseArr);
+    if (self.chooseState) {
+        if (self.rootBlock) {
+            self.rootBlock(self.ChooseArr);
+        }
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }else{
+        if (self.returnBlock && self.ChooseArr.count) {
+            self.returnBlock(self.ChooseArr);
+        }
+         [self.navigationController popViewControllerAnimated:YES];
     }
-    [self.navigationController popViewControllerAnimated:YES];
+
 }
 -(void)returnBack:(returnBackPhotoArr)block{
     self.returnBlock = block;
+}
+-(void)returnToRoot:(returnBackPhotoArr)rootBlock{
+    self.rootBlock = rootBlock;
 }
 #pragma mark--
 #pragma mark  代理
@@ -160,6 +162,17 @@
     return cell;
 }
 #pragma mark --- ScrollView 代理
+/**
+ *  动态改变图片展示的状态
+ *
+ *  @param scrollView 当前的_bigCollect
+ */
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView == (UIScrollView *)_bigCollect) {//UICollectionView是继承于UIScrollView的
+        CGFloat current = scrollView.contentOffset.x / (SCREEN_WIDTH + margin) + 1;
+        _titleLable.text = [NSString stringWithFormat:@"%.f/%d",current,self.fetchResult.count];
+    }
+}
 /**
  *  即将出现的不被方法或者缩小的视图
  *

@@ -28,8 +28,6 @@
 		3A5D9A031C462E4800E6DCA1 /* FZJBigPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D9A011C462E4800E6DCA1 /* FZJBigPhotoCell.m */; };
 		3A5D9A041C462E4800E6DCA1 /* FZJBigPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D9A021C462E4800E6DCA1 /* FZJBigPhotoCell.xib */; };
 		3A678E9A1C4328AE006DA41F /* FZJPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A678E991C4328AE006DA41F /* FZJPhotoModel.m */; };
-		3A678E9E1C435805006DA41F /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A678E9C1C435805006DA41F /* AlertViewController.m */; };
-		3A678E9F1C435805006DA41F /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A678E9D1C435805006DA41F /* AlertViewController.xib */; };
 		3AB703151C44DC2700A5A5C9 /* FZJSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB703141C44DC2700A5A5C9 /* FZJSuperViewController.m */; };
 		3AB703181C44DE2C00A5A5C9 /* FZJSmallPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB703171C44DE2C00A5A5C9 /* FZJSmallPhotoController.m */; };
 /* End PBXBuildFile section */
@@ -92,9 +90,6 @@
 		3A5D9A021C462E4800E6DCA1 /* FZJBigPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FZJBigPhotoCell.xib; sourceTree = "<group>"; };
 		3A678E981C4328AE006DA41F /* FZJPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJPhotoModel.h; sourceTree = "<group>"; };
 		3A678E991C4328AE006DA41F /* FZJPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJPhotoModel.m; sourceTree = "<group>"; };
-		3A678E9B1C435805006DA41F /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
-		3A678E9C1C435805006DA41F /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
-		3A678E9D1C435805006DA41F /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		3AB703131C44DC2700A5A5C9 /* FZJSuperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJSuperViewController.h; sourceTree = "<group>"; };
 		3AB703141C44DC2700A5A5C9 /* FZJSuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJSuperViewController.m; sourceTree = "<group>"; };
 		3AB703161C44DE2C00A5A5C9 /* FZJSmallPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJSmallPhotoController.h; sourceTree = "<group>"; };
@@ -208,9 +203,6 @@
 			children = (
 				3A56FE6A1C422D6500970663 /* FZJPhotoTool.h */,
 				3A56FE6B1C422D6500970663 /* FZJPhotoTool.m */,
-				3A678E9B1C435805006DA41F /* AlertViewController.h */,
-				3A678E9C1C435805006DA41F /* AlertViewController.m */,
-				3A678E9D1C435805006DA41F /* AlertViewController.xib */,
 			);
 			path = FZJTool;
 			sourceTree = "<group>";
@@ -386,7 +378,6 @@
 				3A5D9A041C462E4800E6DCA1 /* FZJBigPhotoCell.xib in Resources */,
 				3A56FE381C4221AB00970663 /* Main.storyboard in Resources */,
 				3A56FE7C1C4242BD00970663 /* FZJSmallPhotoCell.xib in Resources */,
-				3A678E9F1C435805006DA41F /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +405,6 @@
 				3A678E9A1C4328AE006DA41F /* FZJPhotoModel.m in Sources */,
 				3A5D99FC1C45D15500E6DCA1 /* UIButtonExt.m in Sources */,
 				3A5D99FF1C45DB6400E6DCA1 /* FZJBigPhotoController.m in Sources */,
-				3A678E9E1C435805006DA41F /* AlertViewController.m in Sources */,
 				3A56FE321C4221AB00970663 /* AppDelegate.m in Sources */,
 				3A56FE741C423CAE00970663 /* FZJViewController.m in Sources */,
 				3A56FE2F1C4221AB00970663 /* main.m in Sources */,

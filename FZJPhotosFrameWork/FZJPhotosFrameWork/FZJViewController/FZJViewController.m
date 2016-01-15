@@ -10,7 +10,7 @@
 #import "FZJSmallPhotoCell.h"
 #import "FZJenterAlbumController.h"
 #import "FZJPhotoModel.h"
-
+#import "FZJBigPhotoController.h"
 
 
 @interface FZJViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
@@ -107,11 +107,26 @@
     return 5;
 }
 /**
- *  点中事件
+ *  点中事件  进入大图浏览
  */
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"-------------%d",(int)indexPath.row);
+    FZJBigPhotoController * bigPhoto = [[FZJBigPhotoController alloc]init];
+    bigPhoto.clickNum = indexPath.row;
+    NSMutableArray * fetchResult = [NSMutableArray array];
+    for (FZJPhotoModel * moel in _dataArr) {
+        [fetchResult addObject:moel.asset];
+    }
+    bigPhoto.fetchResult = (NSArray *)fetchResult;
+    bigPhoto.ChooseArr = [NSMutableArray arrayWithArray:_dataArr];
+    bigPhoto.chooseState = YES;
+    bigPhoto.addNum = self.MaxNumber;
+    [bigPhoto returnToRoot:^(id data) {
+        _dataArr = [NSMutableArray arrayWithArray:data];
+        [_FZJCollection reloadData];
+    }];
+    [self.navigationController pushViewController:bigPhoto animated:YES];
+
 }
 
 /**

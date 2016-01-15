@@ -157,11 +157,14 @@
     bigPhoto.fetchResult = self.fetchResult;
     bigPhoto.addNum = self.addNum;
     bigPhoto.ChooseArr = self.selectedPhoto;
+    bigPhoto.clickNum = indexPath.row;
+    bigPhoto.returnBlock = self.returnBlock;
     [bigPhoto returnBack:^(id data) {
         _selectedPhoto = [NSMutableArray arrayWithArray:data];
+        _middle.text = [NSString stringWithFormat:@"%d/%d",(int)self.selectedPhoto.count,(int)self.addNum];
         [self.smallCollect reloadData];
     }];
-    bigPhoto.returnBlock = self.returnBlock;
+    
     
     [self.navigationController pushViewController:bigPhoto animated:YES];
 
