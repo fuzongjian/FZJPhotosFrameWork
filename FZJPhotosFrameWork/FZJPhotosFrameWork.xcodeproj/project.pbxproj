@@ -30,6 +30,7 @@
 		3A678E9A1C4328AE006DA41F /* FZJPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A678E991C4328AE006DA41F /* FZJPhotoModel.m */; };
 		3AB703151C44DC2700A5A5C9 /* FZJSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB703141C44DC2700A5A5C9 /* FZJSuperViewController.m */; };
 		3AB703181C44DE2C00A5A5C9 /* FZJSmallPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB703171C44DE2C00A5A5C9 /* FZJSmallPhotoController.m */; };
+		6ABA28339EC0A99444A4F917 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 792DB74898E02E8EE064AFD1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,9 @@
 		3AB703141C44DC2700A5A5C9 /* FZJSuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJSuperViewController.m; sourceTree = "<group>"; };
 		3AB703161C44DE2C00A5A5C9 /* FZJSmallPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJSmallPhotoController.h; sourceTree = "<group>"; };
 		3AB703171C44DE2C00A5A5C9 /* FZJSmallPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJSmallPhotoController.m; sourceTree = "<group>"; };
+		62C2D3E8522DE2B26BB40C7E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		792DB74898E02E8EE064AFD1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD8B986C80C4555E177DF5C1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A56FE8E1C425FAE00970663 /* Photos.framework in Frameworks */,
+				6ABA28339EC0A99444A4F917 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +127,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		373A17627C59510BB9479F8D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				62C2D3E8522DE2B26BB40C7E /* Pods.debug.xcconfig */,
+				BD8B986C80C4555E177DF5C1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3A56FE211C4221AB00970663 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +144,8 @@
 				3A56FE461C4221AB00970663 /* FZJPhotosFrameWorkTests */,
 				3A56FE511C4221AB00970663 /* FZJPhotosFrameWorkUITests */,
 				3A56FE2B1C4221AB00970663 /* Products */,
+				373A17627C59510BB9479F8D /* Pods */,
+				F601E9B89BF0A79881139921 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,6 +284,14 @@
 			path = FZJHomeViewController;
 			sourceTree = "<group>";
 		};
+		F601E9B89BF0A79881139921 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				792DB74898E02E8EE064AFD1 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,9 +299,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A56FE571C4221AB00970663 /* Build configuration list for PBXNativeTarget "FZJPhotosFrameWork" */;
 			buildPhases = (
+				EF1DEB93686895683C4F3AEC /* Check Pods Manifest.lock */,
 				3A56FE261C4221AB00970663 /* Sources */,
 				3A56FE271C4221AB00970663 /* Frameworks */,
 				3A56FE281C4221AB00970663 /* Resources */,
+				B2898F05E1270777C7E2ED43 /* Embed Pods Frameworks */,
+				881882973333898AB76D9B5E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -396,6 +423,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		881882973333898AB76D9B5E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2898F05E1270777C7E2ED43 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF1DEB93686895683C4F3AEC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A56FE261C4221AB00970663 /* Sources */ = {
@@ -554,12 +629,13 @@
 		};
 		3A56FE581C4221AB00970663 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62C2D3E8522DE2B26BB40C7E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FZJPhotosFrameWork/FZJCommon/FZJPCH.pch";
 				INFOPLIST_FILE = FZJPhotosFrameWork/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fuzongjian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -568,12 +644,13 @@
 		};
 		3A56FE591C4221AB00970663 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD8B986C80C4555E177DF5C1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FZJPhotosFrameWork/FZJCommon/FZJPCH.pch";
 				INFOPLIST_FILE = FZJPhotosFrameWork/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fuzongjian;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -97,10 +97,15 @@
 -(void)selectStatus:(UIButtonExt *)select{
     select.selected = !select.selected;
     if (select.selected) {
-        FZJPhotoModel * model = [[FZJPhotoModel alloc]init];
-        model.asset = self.fetchResult[select.index];
-        model.imageName = [self.fetchResult[select.index] valueForKey:@"filename"];
-        [self.ChooseArr addObject:model];
+        if (self.ChooseArr.count == self.addNum) {
+            [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"本次最多选择%d张",(int)self.addNum]];
+            select.selected = NO;
+        }else{
+            FZJPhotoModel * model = [[FZJPhotoModel alloc]init];
+            model.asset = self.fetchResult[select.index];
+            model.imageName = [self.fetchResult[select.index] valueForKey:@"filename"];
+            [self.ChooseArr addObject:model];
+        }
     }else{
         for (FZJPhotoModel * model in self.ChooseArr) {
             if ([model.imageName isEqualToString:[self.fetchResult[select.index] valueForKey:@"filename"]]) {

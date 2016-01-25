@@ -88,10 +88,15 @@
 -(void)smallCellBtnClicked:(UIButtonExt *)btn{
     btn.selected = !btn.selected;
     if (btn.selected) {//为1 则直接加进数组
-        FZJPhotoModel * model = [[FZJPhotoModel alloc]init];
-        model.asset = _fetchResult[btn.index];
-        model.imageName = [_fetchResult[btn.index] valueForKey:@"filename"];
-        [_selectedPhoto addObject:model];
+        if (_selectedPhoto.count == self.addNum) {
+            [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"本次最多选择%d张",(int)self.addNum]];
+            btn.selected = NO;
+        }else{
+            FZJPhotoModel * model = [[FZJPhotoModel alloc]init];
+            model.asset = _fetchResult[btn.index];
+            model.imageName = [_fetchResult[btn.index] valueForKey:@"filename"];
+            [_selectedPhoto addObject:model];
+        }
     }else{//为0 从数组中删除
         for (FZJPhotoModel * model in _selectedPhoto) {
             if ([model.imageName isEqualToString:[_fetchResult[btn.index] valueForKey:@"filename"]]) {

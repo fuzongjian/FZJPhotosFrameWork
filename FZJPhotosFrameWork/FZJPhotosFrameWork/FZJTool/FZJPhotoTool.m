@@ -105,6 +105,7 @@
 }
 #pragma mark ---   获取asset相对应的照片
 -(void)getImageByAsset:(PHAsset *)asset makeSize:(CGSize)size makeResizeMode:(PHImageRequestOptionsResizeMode)resizeMode completion:(void (^)(UIImage *))completion{
+    
     PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
     /**
      resizeMode：对请求的图像怎样缩放。有三种选择：None，不缩放；Fast，尽快地提供接近或稍微大于要求的尺寸；Exact，精准提供要求的尺寸。

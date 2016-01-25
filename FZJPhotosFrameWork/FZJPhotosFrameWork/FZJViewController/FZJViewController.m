@@ -136,11 +136,11 @@
 - (IBAction)addPhoto:(id)sender {
     
     if (_PhotoNumberText.text.length) {
-        self.MaxNumber = [_PhotoNumberText.text intValue];
+        self.MaxNumber = [_PhotoNumberText.text integerValue];
     }else{
          self.MaxNumber = 10;
     }
-    
+    NSLog(@"%d",(int)self.MaxNumber);
     /**
      *  每次点击添加按钮进行判断照片数量是否达到上限
      */
@@ -150,7 +150,7 @@
         /**
          *  跳转提示窗口
          */
-        
+        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"最多选择%d张",self.MaxNumber]];
         
     }else{
         
@@ -165,7 +165,6 @@
 -(void)popChooseActionView{
     
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"选择照片" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    
     UIAlertAction * cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
     UIAlertAction * ablum = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -184,7 +183,7 @@
             
         }else{
             
-            
+            [SVProgressHUD showErrorWithStatus:@"请在iPhone的\"设置-隐私-相册\"中允许访问相册"];
             
         }
         
@@ -197,10 +196,8 @@
         if ([self FZJhaveCameraAuthority]) {
             [self takePhotoFromiPhone];
         }else{
-            
+           [SVProgressHUD showErrorWithStatus:@"请在iPhone的\"设置-隐私-相机\"中允许访问相机"];
         }
-        
-        
         NSLog(@"拍照");
         
     }];
@@ -254,8 +251,7 @@
 -(BOOL)FZJhaveAlbumAuthority{
     
     PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
-    if (status == PHAuthorizationStatusRestricted ||
-        status == PHAuthorizationStatusDenied) {
+    if (status == PHAuthorizationStatusRestricted || status == PHAuthorizationStatusDenied) {
         return NO;
     }
     return YES;
@@ -268,18 +264,11 @@
  */
 -(BOOL)FZJhaveCameraAuthority{
     AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    if (status == AVAuthorizationStatusRestricted ||
-        status == AVAuthorizationStatusDenied) {
+    if (status == AVAuthorizationStatusRestricted || status == AVAuthorizationStatusDenied) {
         return NO;
     }
     return YES;
 }
-
-
-
-
-
-
 /**
  *  键盘收缩
  *
