@@ -117,8 +117,8 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     FZJSmallPhotoCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SmallPhotoCell" forIndexPath:indexPath];
     CGSize size = cell.size;
-    size.width *= 2;
-    size.height *= 2;
+    size.width *= [UIScreen mainScreen].scale;
+    size.height *= [UIScreen mainScreen].scale;
     [[FZJPhotoTool defaultFZJPhotoTool] getImageByAsset:self.fetchResult[indexPath.row] makeSize:size makeResizeMode:PHImageRequestOptionsResizeModeFast completion:^(UIImage *AssetImage) {
         cell.ImageView.image = AssetImage;
     }];
@@ -164,10 +164,15 @@
     bigPhoto.ChooseArr = self.selectedPhoto;
     bigPhoto.clickNum = indexPath.row;
     bigPhoto.returnBlock = self.returnBlock;
+    
+    __weak __typeof(self) weakSelf = self;
+    __block __typeof (_selectedPhoto) weakSelectedPhoto = _selectedPhoto;
+    __block __typeof (_middle)weakMiddle = _middle;
+    
     [bigPhoto returnBack:^(id data) {
-        _selectedPhoto = [NSMutableArray arrayWithArray:data];
-        _middle.text = [NSString stringWithFormat:@"%d/%d",(int)self.selectedPhoto.count,(int)self.addNum];
-        [self.smallCollect reloadData];
+        weakSelectedPhoto = [NSMutableArray arrayWithArray:data];
+        weakMiddle.text = [NSString stringWithFormat:@"%d/%d",(int)self.selectedPhoto.count,(int)self.addNum];
+        [weakSelf.smallCollect reloadData];
     }];
     
     

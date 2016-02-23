@@ -152,8 +152,10 @@
     cell.ImageView.image = nil;
     self.selectStatus.selected = NO;
     self.selectStatus.index = indexPath.row;
+    CGFloat scale = [UIScreen mainScreen].scale;
+    PHAsset * asset = self.fetchResult[indexPath.row];
     [cell showIndicator];
-    [[FZJPhotoTool defaultFZJPhotoTool] getImageByAsset:self.fetchResult[indexPath.row] makeSize:PHImageManagerMaximumSize makeResizeMode:PHImageRequestOptionsResizeModeNone completion:^(UIImage *AssetImage) {
+    [[FZJPhotoTool defaultFZJPhotoTool] getImageByAsset:asset makeSize:CGSizeMake(asset.pixelWidth * scale, asset.pixelHeight * scale) makeResizeMode:PHImageRequestOptionsResizeModeNone completion:^(UIImage *AssetImage) {
         cell.ImageView.image = AssetImage;
         [cell hideIndicator];
     }];
@@ -175,7 +177,7 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (scrollView == (UIScrollView *)_bigCollect) {//UICollectionView是继承于UIScrollView的
         CGFloat current = scrollView.contentOffset.x / (SCREEN_WIDTH + margin) + 1;
-        _titleLable.text = [NSString stringWithFormat:@"%.f/%d",current,self.fetchResult.count];
+        _titleLable.text = [NSString stringWithFormat:@"%.f/%d",current,(int)self.fetchResult.count];
     }
 }
 /**

@@ -22,7 +22,6 @@
 		3A56FE871C4250B700970663 /* FZJenterAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE861C4250B700970663 /* FZJenterAlbumController.m */; };
 		3A56FE8B1C42515500970663 /* FZJenterAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56FE891C42515500970663 /* FZJenterAlbumCell.m */; };
 		3A56FE8C1C42515500970663 /* FZJenterAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A56FE8A1C42515500970663 /* FZJenterAlbumCell.xib */; };
-		3A56FE8E1C425FAE00970663 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A56FE8D1C425FAE00970663 /* Photos.framework */; };
 		3A5D99FC1C45D15500E6DCA1 /* UIButtonExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D99FB1C45D15500E6DCA1 /* UIButtonExt.m */; };
 		3A5D99FF1C45DB6400E6DCA1 /* FZJBigPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D99FE1C45DB6400E6DCA1 /* FZJBigPhotoController.m */; };
 		3A5D9A031C462E4800E6DCA1 /* FZJBigPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D9A011C462E4800E6DCA1 /* FZJBigPhotoCell.m */; };
@@ -81,7 +80,6 @@
 		3A56FE881C42515500970663 /* FZJenterAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJenterAlbumCell.h; sourceTree = "<group>"; };
 		3A56FE891C42515500970663 /* FZJenterAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZJenterAlbumCell.m; sourceTree = "<group>"; };
 		3A56FE8A1C42515500970663 /* FZJenterAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FZJenterAlbumCell.xib; sourceTree = "<group>"; };
-		3A56FE8D1C425FAE00970663 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		3A5D99FA1C45D15500E6DCA1 /* UIButtonExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonExt.h; sourceTree = "<group>"; };
 		3A5D99FB1C45D15500E6DCA1 /* UIButtonExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonExt.m; sourceTree = "<group>"; };
 		3A5D99FD1C45DB6400E6DCA1 /* FZJBigPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZJBigPhotoController.h; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A56FE8E1C425FAE00970663 /* Photos.framework in Frameworks */,
 				6ABA28339EC0A99444A4F917 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +136,6 @@
 		3A56FE211C4221AB00970663 = {
 			isa = PBXGroup;
 			children = (
-				3A56FE8D1C425FAE00970663 /* Photos.framework */,
 				3A56FE2C1C4221AB00970663 /* FZJPhotosFrameWork */,
 				3A56FE461C4221AB00970663 /* FZJPhotosFrameWorkTests */,
 				3A56FE511C4221AB00970663 /* FZJPhotosFrameWorkUITests */,
