@@ -72,7 +72,14 @@
     
     FZJPhotoList * list = _photoList[indexPath.row];
     
-    [[FZJPhotoTool defaultFZJPhotoTool] getImageByAsset:list.firstAsset makeSize:CGSizeMake(80, 80) makeResizeMode:PHImageRequestOptionsResizeModeFast completion:^(UIImage *AssetImage) {
+    cell.iconImageView.contentMode = UIViewContentModeScaleAspectFill;
+    cell.iconImageView.clipsToBounds = YES;
+    CGSize size = CGSizeMake(80, 80);
+    size.height *= [UIScreen mainScreen].scale;
+    size.width *= [UIScreen mainScreen].scale;
+    
+    
+    [[FZJPhotoTool defaultFZJPhotoTool] getImageByAsset:list.firstAsset makeSize:size makeResizeMode:PHImageRequestOptionsResizeModeExact completion:^(UIImage *AssetImage) {
         if (AssetImage) {
             cell.iconImageView.image = AssetImage;
         }

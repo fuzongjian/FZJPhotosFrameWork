@@ -116,10 +116,12 @@
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     FZJSmallPhotoCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SmallPhotoCell" forIndexPath:indexPath];
+    cell.ImageView.contentMode = UIViewContentModeScaleAspectFill;
+    cell.clipsToBounds = YES;
     CGSize size = cell.size;
     size.width *= [UIScreen mainScreen].scale;
     size.height *= [UIScreen mainScreen].scale;
-    [[FZJPhotoTool defaultFZJPhotoTool] getImageByAsset:self.fetchResult[indexPath.row] makeSize:size makeResizeMode:PHImageRequestOptionsResizeModeFast completion:^(UIImage *AssetImage) {
+    [[FZJPhotoTool defaultFZJPhotoTool] getImageByAsset:self.fetchResult[indexPath.row] makeSize:size makeResizeMode:PHImageRequestOptionsResizeModeExact completion:^(UIImage *AssetImage) {
         cell.ImageView.image = AssetImage;
     }];
     cell.ChooseBtn.index = indexPath.row;
@@ -166,12 +168,10 @@
     bigPhoto.returnBlock = self.returnBlock;
     
     __weak __typeof(self) weakSelf = self;
-    __block __typeof (_selectedPhoto) weakSelectedPhoto = _selectedPhoto;
-    __block __typeof (_middle)weakMiddle = _middle;
     
     [bigPhoto returnBack:^(id data) {
-        weakSelectedPhoto = [NSMutableArray arrayWithArray:data];
-        weakMiddle.text = [NSString stringWithFormat:@"%d/%d",(int)self.selectedPhoto.count,(int)self.addNum];
+        weakSelf.selectedPhoto = [NSMutableArray arrayWithArray:data];
+        weakSelf.middle.text = [NSString stringWithFormat:@"%d/%d",(int)self.selectedPhoto.count,(int)self.addNum];
         [weakSelf.smallCollect reloadData];
     }];
     
