@@ -26,7 +26,7 @@
 
 /**
  *  最多能选择几张照片
- *  好吧
+ *  好吧 你在看看行行不行啦
  */
 @property(nonatomic,assign)NSInteger MaxNumber;
 
