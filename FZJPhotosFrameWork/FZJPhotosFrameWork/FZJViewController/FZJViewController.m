@@ -25,7 +25,7 @@
 @property(nonatomic,strong)NSMutableArray<FZJPhotoModel *> * dataArr;
 
 /**
- *  最多能选择多少张照片
+ *  最多能选择几张照片
  */
 @property(nonatomic,assign)NSInteger MaxNumber;
 
