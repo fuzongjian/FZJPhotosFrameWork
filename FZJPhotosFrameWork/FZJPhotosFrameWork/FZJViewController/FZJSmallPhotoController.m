@@ -40,7 +40,7 @@
     
     UICollectionViewFlowLayout * flowLayOut = [[UICollectionViewFlowLayout alloc] init];
     [flowLayOut setScrollDirection:UICollectionViewScrollDirectionVertical];
-    _smallCollect = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) collectionViewLayout:flowLayOut];
+    _smallCollect = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 30) collectionViewLayout:flowLayOut];
     [self.view addSubview:_smallCollect];
     [_smallCollect registerNib:[UINib nibWithNibName:@"FZJSmallPhotoCell" bundle:nil] forCellWithReuseIdentifier:@"SmallPhotoCell"];
     _smallCollect.delegate = self;
